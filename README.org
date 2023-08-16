@@ -1,4 +1,4 @@
-#+TITLE:*drawspec*: Draw spectra of rings of integers of number fields
+#+TITLE:Draw spectra of rings of integers of number fields
 * Usage:
 See instructions in [[file:Drawing spectra of number fields.ipynb][the jupyter notebook]].
 * License:
