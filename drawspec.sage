@@ -52,7 +52,7 @@ class NumberFieldSpec():
 def draw_spec(F,
               npoints,
               fat_factor=1,
-              draw_random_line=True,
+              draw_random_line=False,
               color_classes=False,
               quadratic_curve=False):
 
@@ -113,7 +113,8 @@ def draw_spec(F,
 
             rand_current = rand_next
 
-    # if quadratic_curve:
+    if quadratic_curve:
+        pic.draw()
 
     # draw generic points:
     pic.draw((npoints + 2, c), node("$(0)$"))
