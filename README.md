@@ -1,6 +1,6 @@
 # Draw spectra of rings of integers of number fields
 <!-- say something about sage, and about what it is we are drawing -->
-![pic](x7+41.pdf "$x^7 + 41$")
+![pic](x7+41.svg "$x^7 + 41$")
 
 Draw $\mathrm{Spec}\, \mathcal O_F$ for your favourite number field $F$! Requires [sage](https://www.sagemath.org/) and [pytikz](https://github.com/allefeld/pytikz). 
 ## Usage:
