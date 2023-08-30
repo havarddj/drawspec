@@ -1,5 +1,8 @@
 # Draw spectra of rings of integers of number fields
 <!-- say something about sage, and about what it is we are drawing -->
+![pic](x7+41.png "$x^7 + 41$")
+
+Draw $\operatorname{Spec} \mathcal O_F$ for your favourite number field $F$! Requires [sage](https://www.sagemath.org/) and [pytikz](https://github.com/allefeld/pytikz). 
 ## Usage:
 See instructions in the [jupyter notebook](Drawing%20spectra%20of%20number%20fields.ipynb).
 ## License:

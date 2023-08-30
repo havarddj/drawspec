@@ -44,8 +44,8 @@ class NumberFieldSpec():
     def demo(self):
         return self.pic().demo()
 
-    def quadratic_curve(self, flag):
-        self._quadratic_curve = flag
+    def curve(self, flag):
+        self._curve = flag
         self._pic = self._draw_spec()
 
 
@@ -54,7 +54,7 @@ def draw_spec(F,
               fat_factor=1,
               draw_random_line=False,
               color_classes=False,
-              quadratic_curve=False):
+              curve=False):
 
     prime_list = primes_first_n(npoints)
     # c = F.degree() / 2 + 1
@@ -113,13 +113,26 @@ def draw_spec(F,
 
             rand_current = rand_next
 
-    if quadratic_curve:
-        pic.draw()
+    if curve:
+        # handle left endpoints differently if 2 is nonsplit
+        # if len(coord_list[0]) == 1:
+        #     for coord in coord_list[1]:
+        #         pic.draw(
+        #             line([coord_list[0][0], coord],
+        #                  op=f'to[out={90},in={180}]'))
+
+        for n in range(npoints):
+            for coord_this in coord_list[n]:
+                for coord_next in (coord_list + [[(npoints, c)]])[n + 1]:
+                    print(coord_next)
+                    pic.draw(
+                        line([coord_this, coord_next],
+                             op=f'to[out={0},in={180}]'))
+
+        pic.draw(line([(npoints, c), (npoints + 1, c)]), dashed=True)
 
     # draw generic points:
     pic.draw((npoints + 2, c), node("$(0)$"))
-    if quadratic_curve:
-        pic.draw(line([(npoints, c), (npoints + 1, c)]), dashed=True)
 
     # draw spec Z
     pic.filldraw(line([(0, 0), (npoints, 0)]))
