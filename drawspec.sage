@@ -9,7 +9,7 @@ class NumberFieldSpec():
         self._draw_random_line = False
         self._nprimes = nprimes
         self._color_classes = False
-        self._quadratic_curve = False
+        self._curve = False
         self._pic = self._draw_spec()
 
     def _draw_spec(self):
@@ -18,7 +18,7 @@ class NumberFieldSpec():
                          fat_factor=self._fat_ramify,
                          draw_random_line=self._draw_random_line,
                          color_classes=self._color_classes,
-                         quadratic_curve=self._quadratic_curve)
+                         curve=self._curve)
 
     def code(self):
         return self._pic.code()
@@ -93,6 +93,7 @@ def draw_spec(F,
                          fill=color)
 
     if draw_random_line:
+        # this is probably unnecessary since curve exists
         rand_current = randrange(len(coord_list[0]))
         rand_pt = coord_list[0][rand_current]
         for n in range(1, len(coord_list)):
@@ -114,17 +115,9 @@ def draw_spec(F,
             rand_current = rand_next
 
     if curve:
-        # handle left endpoints differently if 2 is nonsplit
-        # if len(coord_list[0]) == 1:
-        #     for coord in coord_list[1]:
-        #         pic.draw(
-        #             line([coord_list[0][0], coord],
-        #                  op=f'to[out={90},in={180}]'))
-
         for n in range(npoints):
             for coord_this in coord_list[n]:
                 for coord_next in (coord_list + [[(npoints, c)]])[n + 1]:
-                    print(coord_next)
                     pic.draw(
                         line([coord_this, coord_next],
                              op=f'to[out={0},in={180}]'))
